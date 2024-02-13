@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const DetailedFightPage = () => {
     const [fight, setFight] = useState(null);
@@ -8,8 +8,7 @@ const DetailedFightPage = () => {
     const [betAmount, setBetAmount] = useState('');
     const [firstPokemonChoosen, setFirstPokemonChoosen] = useState(false);
     const navigate = useNavigate();
-    const location = useLocation();
-    const fightId = location.state?.fightId;
+    const {fightId} = useParams();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -68,12 +67,14 @@ const DetailedFightPage = () => {
     return (
         <div>
             <h2>Бой №{fight.id}</h2>
-            <p>Первый Покемон: {fight.firstPokemon.name} (Тип: {fight.firstPokemon.type},
-                Тренер: {fight.firstPokemon.trainer?.name})</p>
-            <p>Второй Покемон: {fight.secondPokemon.name} (Тип: {fight.secondPokemon.type},
-                Тренер: {fight.secondPokemon.trainer?.name})</p>
+            <p>Первый Покемон: {fight.firstPokemon.name} (Типы: {fight.firstPokemon.types.join(', ')},
+                Тренер: {fight.firstPokemon.trainer?.name}, Коэффициент: {fight.coefficientFirst.toFixed(2)})</p>
+            <p>Второй Покемон: {fight.secondPokemon.name} (Типы: {fight.secondPokemon.types.join(', ')},
+                Тренер: {fight.secondPokemon.trainer?.name}, Коэффициент: {fight.coefficientSecond.toFixed(2)})</p>
             <p>Место проведения: {fight.location.name}</p>
             <p>Статус боя: {fight.isCompleted ? 'Завершен' : 'Не завершен'}</p>
+            {fight.firstWon && <p>Победил покемон номер {fight.firstWon ? 1 : 2}</p>}
+
 
             {!fight.isCompleted && (
                 <>

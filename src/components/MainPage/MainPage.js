@@ -45,12 +45,13 @@ const MainPage = () => {
             {fights.map((fight) => (
                 <div key={fight.id} className="fight-card" onClick={() => handleFightClick(fight.id)}>
                     <h3>Бой №{fight.id}</h3>
-                    <p>Первый Покемон: {fight.firstPokemon.name} (Тип: {fight.firstPokemon.type}, Тренер: {fight.firstPokemon.trainer?.name})</p>
+                    <p>Первый Покемон: {fight.firstPokemon.name} (Тип: {fight.firstPokemon.types.join(', ')}, Тренер: {fight.firstPokemon.trainer?.name})</p>
                     <p>Коэффициент на победу: {fight.coefficientFirst.toFixed(2)}</p>
-                    <p>Второй Покемон: {fight.secondPokemon.name} (Тип: {fight.secondPokemon.type}, Тренер: {fight.secondPokemon.trainer?.name})</p>
+                    <p>Второй Покемон: {fight.secondPokemon.name} (Тип: {fight.secondPokemon.types.join(', ')}, Тренер: {fight.secondPokemon.trainer?.name})</p>
                     <p>Коэффициент на победу: {fight.coefficientSecond.toFixed(2)}</p>
                     <p>Место проведения: {fight.location.name}</p>
                     <p>Статус боя: {fight.isCompleted ? 'Завершен' : 'Не завершен'}</p>
+                    {fight.firstWon && <p>Победил покемон номер {fight.firstWon ? 1 : 2}</p>}
                 </div>
             ))}
         </div>
