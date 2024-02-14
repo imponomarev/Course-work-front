@@ -1,0 +1,127 @@
+.detailed-fight-page {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.detailed-fight-page h2, .detailed-fight-page h3 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.detailed-fight-page p, .detailed-fight-page label {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.detailed-fight-page input[type="number"], .detailed-fight-page select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.detailed-fight-page input[type="radio"] {
+    margin-right: 10px;
+}
+
+.detailed-fight-page .fight-info {
+    padding: 15px;
+    background-color: #eceff1;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.detailed-fight-page .fight-info p {
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+
+.detailed-fight-page button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px auto;
+    display: block;
+    width: fit-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+
+.detailed-fight-page button:hover {
+    transform: translateY(-2px);
+}
+
+
+.detailed-fight-page .bet-button {
+    background-color: #28a745;
+}
+
+.detailed-fight-page .bet-button:hover {
+    background-color: #218838;
+}
+
+
+.detailed-fight-page .start-fight-button {
+    background-color: #dc3545;
+}
+
+.detailed-fight-page .start-fight-button:hover {
+    background-color: #c82333;
+}
+
+
+.detailed-fight-page .bet-details {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    margin: 20px 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.detailed-fight-page .bet-details p {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+.detailed-fight-page .pokemon-choice {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.detailed-fight-page .pokemon-choice label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.detailed-fight-page .pokemon-choice input[type="radio"] {
+    margin-right: 10px;
+}
+
+
+.detailed-fight-page .pokemon-choice input[type="radio"]:checked + label {
+    font-weight: bold;
+    color: #007bff;
+}

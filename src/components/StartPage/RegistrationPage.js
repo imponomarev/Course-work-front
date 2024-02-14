@@ -13,7 +13,6 @@ const RegistrationPage = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            // Здесь должен быть запрос к API для регистрации
             await axios.post('http://localhost:6969/auth/signup', userData);
             navigate('/login');
         } catch (error) {
@@ -22,26 +21,36 @@ const RegistrationPage = () => {
     };
 
     return (
-        <div>
+        <div className="login">
             <h1>Регистрация</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="username"
-                    value={userData.username}
-                    onChange={handleChange}
-                    placeholder="Имя пользователя"
-                    required
-                />
-                <input
-                    type="password"
-                    name="password"
-                    value={userData.password}
-                    onChange={handleChange}
-                    placeholder="Пароль"
-                    requiredA
-                />
-                <button type="submit">Зарегистрироваться</button>
+            <form onSubmit={handleSubmit} className="form">
+                <div className="text-field">
+                    <label htmlFor="username" className="text-field__label">Имя пользователя</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        className="text-field__input"
+                        value={userData.username}
+                        onChange={handleChange}
+                        placeholder="Имя пользователя"
+                        required
+                    />
+                </div>
+                <div className="text-field">
+                    <label htmlFor="password" className="text-field__label">Пароль</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        className="text-field__input"
+                        value={userData.password}
+                        onChange={handleChange}
+                        placeholder="Пароль"
+                        required
+                    />
+                </div>
+                <button type="submit" className="submit-button">Зарегистрироваться</button>
             </form>
         </div>
     );

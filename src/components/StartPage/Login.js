@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import authService from './authService';
-import '../../styles/Login.css';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -45,10 +44,7 @@ const Login = () => {
             </form>
             {error && <div>{error}</div>}
             <div>
-                <a href="/register">Регистрация</a> {/* Ссылка на страницу регистрации */}
-            </div>
-            <div>
-                <button onClick={() => navigate('/main')}>Главная страница</button>
+                <a href="/register">Регистрация</a>
             </div>
         </div>
     );

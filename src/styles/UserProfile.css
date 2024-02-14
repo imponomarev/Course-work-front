@@ -1,0 +1,75 @@
+.user-profile-page {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile-page h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.user-profile-page .fight-card {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.user-profile-page .fight-card:hover {
+    transform: scale(1.02);
+}
+
+.user-profile-page .fight-card h3 {
+    color: #2196f3;
+    margin-top: 0;
+}
+
+.user-profile-page .fight-card p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+
+.user-profile-page .fight-card p:last-child {
+    font-weight: bold;
+    color: #e53935;
+}
+
+.user-profile-page .fight-card p.win {
+    color: #4caf50;
+}
+
+.user-profile-page button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.user-profile-page button:hover {
+    background-color: #0056b3;
+}
+
+.user-profile-page div[role="alert"], .user-profile-page a {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.user-profile-page a:hover {
+    text-decoration: underline;
+}

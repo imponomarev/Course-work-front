@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/CreateFight.css';
 
 const CreateFight = () => {
     const navigate = useNavigate();
@@ -11,7 +12,7 @@ const CreateFight = () => {
     const [locations, setLocations] = useState([]);
 
     useEffect(() => {
-        // Загрузка данных о покемонах и местах проведения боев
+
         const fetchData = async () => {
             try {
                 const pokemonsResponse = await axios.get('http://localhost:6969/pokemons');
@@ -52,11 +53,11 @@ const CreateFight = () => {
     };
 
     const handleReturn = () => {
-        navigate('/main'); // Перенаправление на главную страницу
+        navigate('/main');
     };
 
     return (
-        <div>
+        <div className="create-fight-page">
             <h2>Создать бой</h2>
             <form onSubmit={handleSubmit}>
                 <div>

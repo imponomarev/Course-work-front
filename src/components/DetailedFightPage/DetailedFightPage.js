@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import '../../styles/DetailedFightPage.css';
 
 const DetailedFightPage = () => {
     const [fight, setFight] = useState(null);
     const [bets, setBets] = useState([]);
     const [betAmount, setBetAmount] = useState('');
-    const [firstPokemonChoosen, setFirstPokemonChoosen] = useState(false);
+    const [firstPokemonChosen, setFirstPokemonChoosen] = useState(false);
     const navigate = useNavigate();
     const {fightId} = useParams();
 
@@ -35,7 +36,7 @@ const DetailedFightPage = () => {
             await axios.post('http://localhost:6969/bets', {
                 fightId,
                 credits: betAmount,
-                firstPokemonChoosen
+                firstPokemonChosen
             });
             alert('Ставка сделана!');
 
@@ -61,11 +62,11 @@ const DetailedFightPage = () => {
     }
 
     const handleReturn = () => {
-        navigate('/main'); // Перенаправление на главную страницу
+        navigate('/main');
     };
 
     return (
-        <div>
+        <div className="detailed-fight-page">
             <h2>Бой №{fight.id}</h2>
             <p>Первый Покемон: {fight.firstPokemon.name} (Типы: {fight.firstPokemon.types.join(', ')},
                 Тренер: {fight.firstPokemon.trainer?.name}, Коэффициент: {fight.coefficientFirst.toFixed(2)})</p>
@@ -86,12 +87,12 @@ const DetailedFightPage = () => {
                         value={betAmount}
                         onChange={(e) => setBetAmount(e.target.value)}
                     />
-                    <div>
+                    <div className="pokemon-choice">
                         <label>
                             <input
                                 type="radio"
                                 name="pokemonChoice"
-                                checked={firstPokemonChoosen}
+                                checked={firstPokemonChosen}
                                 onChange={() => setFirstPokemonChoosen(true)}
                             />
                             Первый покемон
@@ -100,21 +101,21 @@ const DetailedFightPage = () => {
                             <input
                                 type="radio"
                                 name="pokemonChoice"
-                                checked={!firstPokemonChoosen}
+                                checked={!firstPokemonChosen}
                                 onChange={() => setFirstPokemonChoosen(false)}
                             />
                             Второй покемон
                         </label>
                     </div>
-                    <button onClick={handleBetSubmit}>Сделать ставку</button>
-                    <button onClick={handleStartFight}>Запустить бой</button>
+                    <button className="bet-button" onClick={handleBetSubmit}>Сделать ставку</button>
+                    <button className="start-fight-button" onClick={handleStartFight}>Запустить бой</button>
                 </>
             )}
             <h3>Ставки на бой:</h3>
             {bets.map((bet) => (
                 <div key={bet.id}>
                     <p>Сумма ставки: {bet.credits}</p>
-                    <p>Ставка на первого покемона: {bet.firstPokemonChoosen ? 'Да' : 'Нет'}</p>
+                    <p>Ставка на первого покемона: {bet.firstPokemonChosen ? 'Да' : 'Нет'}</p>
                 </div>
             ))}
             <button onClick={handleReturn}>Вернуться на главную страницу</button>

@@ -34,9 +34,9 @@ const MainPage = () => {
     };
 
     return (
-        <div>
+        <div className="main-page">
             <div className="top-bar">
-                <div className="balance">Баланс: {userBalance} кредитов</div>
+                <div className="balance">Баланс: {userBalance.toFixed(2)} кредитов</div>
                 <div className="profile-icon" onClick={goToProfile}>Профиль</div>
             </div>
             <h1>Главная страница</h1>
