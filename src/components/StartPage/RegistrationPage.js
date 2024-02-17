@@ -14,7 +14,7 @@ const RegistrationPage = () => {
         event.preventDefault();
         try {
             await axios.post('http://localhost:6969/auth/signup', userData);
-            navigate('/login');
+            navigate('/');
         } catch (error) {
             console.error('Ошибка при регистрации:', error);
         }
